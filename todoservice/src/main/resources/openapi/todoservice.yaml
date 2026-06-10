@@ -1,0 +1,45 @@
+openapi: 3.0.3
+info:
+  title: Todo Service API
+  description: API contract for the Todo service.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /tasks:
+    post:
+      summary: Create a new Task
+      operationId: createTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTask'
+      responses:
+        '201':
+          description: Task created
+
+components:
+  schemas:
+    CreateTask:
+      type: object
+      properties:
+        taskName:
+          type: string
+          example: "Do the laundry"
+        startDate:
+          type: string
+          format: date
+          example: "2026-06-10"
+        dueDate:
+          type: string
+          format: date
+          example: "2026-06-11"
+        completed:
+          type: string
+          format: date
+          example: "2026-06-12"
+      required:
+        - taskName
+        - dueDate
