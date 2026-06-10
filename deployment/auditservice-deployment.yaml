@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: auditservice
+  name: auditservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auditservice
+  strategy: { }
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: auditservice
+    spec:
+      containers:
+        - image: auditservice-jvm
+          imagePullPolicy: IfNotPresent
+          name: auditservice-native
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: auditservice
+          resources: { }
+status: { }

@@ -1,0 +1,44 @@
+openapi: 3.0.3
+info:
+  title: Audit Service API
+  description: API contract for the audit service.
+  version: 1.0.0
+servers:
+  - url: /api
+paths:
+  /audits:
+    post:
+      summary: Create a new audit record
+      operationId: createAudit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuditRecord'
+      responses:
+        '201':
+          description: Audit record created
+
+components:
+  schemas:
+    AuditRecord:
+      type: object
+      properties:
+        applicationname:
+          type: string
+          example: "My Application"
+        applicationfunction:
+          type: string
+          example: "Function within the application"
+        username:
+          type: string
+          example: "johndoe"
+        context:
+          type: object
+          additionalProperties:
+            type: string
+      required:
+        - applicationname
+        - applicationfunction
+        - username

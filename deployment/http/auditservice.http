@@ -1,0 +1,12 @@
+POST http://localhost:9000/audits
+Content-Type: application/json
+
+{
+  "applicationname": "ihg-k-kbd",
+  "applicationfunction": "raadplegen",
+  "username": "geerc01",
+  "context": {
+    "bsn": "100270128",
+    "belastingjaar": "2025"
+  }
+}
