@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  dbkind: postgresql
+  dbpass: mijngeheimwachtwoord
+  dburl: jdbc:postgresql://postgres:5432/postgres
+  dbuser: postgres
+kind: ConfigMap
+metadata:
+  name: database
+  namespace: default

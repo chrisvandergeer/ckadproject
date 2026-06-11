@@ -1,4 +1,8 @@
-POST http://localhost:8080/audits
+# @host = http://localhost:8080
+@host = http://localhost:9000
+
+### Create Audit Event
+POST {{host}}/audits
 Content-Type: application/json
 
 {

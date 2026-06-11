@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: todoservice
+  name: todoservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:  
+      app: todoservice
+  strategy: { }
+  template:
+    metadata:
+      labels:
+        app: todoservice
+    spec:
+      containers:
+        - image: todoservice-jvm
+          imagePullPolicy: IfNotPresent
+          name: todoservice-native
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: database
+          resources: { }
+status: { }

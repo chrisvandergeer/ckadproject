@@ -1,5 +1,9 @@
+
+# @host = http://localhost:8080
+@host = http://localhost:9001
+
 ### Create Task
-POST http://localhost:8080/tasks
+POST {{host}}/tasks
 Content-Type: application/json
 
 {
@@ -8,12 +12,12 @@ Content-Type: application/json
 }
 
 ### Complete Task
-PUT http://localhost:8080/tasks/complete/5847f645-2f48-4c75-a957-07e6405105ec
+PUT {{host}}/tasks/complete/5847f645-2f48-4c75-a957-07e6405105ec
 
 
 ### Find Tasks
-GET http://localhost:8080/tasks
+GET {{host}}/tasks
 
 
 ### Find completed Tasks
-GET http://localhost:8080/tasks/complete
+GET {{host}}/tasks/complete
