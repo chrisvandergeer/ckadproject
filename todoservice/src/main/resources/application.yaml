@@ -1,0 +1,13 @@
+quarkus:
+  datasource:
+    db-kind: ${dbkind}
+    username: ${dbuser}
+    password: ${dbpass}
+    jdbc:
+      url: ${dburl}
+
+  hibernate-orm:
+    database:
+       generation: drop-and-create
+    log:
+      sql: true

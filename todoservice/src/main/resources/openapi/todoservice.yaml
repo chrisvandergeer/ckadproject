@@ -15,14 +15,77 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateTask'
+              $ref: '#/components/schemas/CreateTaskCommand'
       responses:
-        '201':
-          description: Task created
+        '200':
+          description: Task created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskView' 
+    get:
+      summary: Get all Tasks
+      operationId: getTasks
+      responses:
+        '200':
+          description: A list of Tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskView'
+  /tasks/complete:
+    get:
+      summary: Get all completed Tasks
+      operationId: getCompletedTasks
+      responses:
+        '200':
+          description: A list of completed Tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskView'
+  /tasks/complete/{taskId}:
+    put:
+      summary: Mark a Task as completed
+      operationId: completeTask
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Task marked as completed
 
 components:
   schemas:
-    CreateTask:
+    TaskView:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        taskName:
+          type: string
+          example: "Do the laundry"
+        startDate:
+          type: string
+          format: date
+          example: "2026-06-10"
+        dueDate:  
+          type: string
+          format: date
+          example: "2026-06-11"
+        completed:
+          type: string
+          format: date
+          example: "2026-06-12"
+    CreateTaskCommand:
       type: object
       properties:
         taskName:

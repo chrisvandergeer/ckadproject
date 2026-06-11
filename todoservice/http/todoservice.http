@@ -1,8 +1,19 @@
-# Create Task
-POST localhost:8080/tasks
+### Create Task
+POST http://localhost:8080/tasks
 Content-Type: application/json
 
 {
   "taskName": "Wasje draaien",
-  "dueDate": "2026-06-11"
+  "dueDate": "2026-06-12"
 }
+
+### Complete Task
+PUT http://localhost:8080/tasks/complete/5847f645-2f48-4c75-a957-07e6405105ec
+
+
+### Find Tasks
+GET http://localhost:8080/tasks
+
+
+### Find completed Tasks
+GET http://localhost:8080/tasks/complete
