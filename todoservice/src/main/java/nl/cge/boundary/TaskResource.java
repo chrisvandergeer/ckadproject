@@ -8,6 +8,7 @@ import jakarta.inject.Inject;
 import nl.cge.api.TasksApi;
 import nl.cge.control.CompleteTaskController;
 import nl.cge.control.CreateTaskController;
+import nl.cge.control.DeleteCompletedTasksController;
 import nl.cge.control.FindTasksController;
 import nl.cge.model.CreateTaskCommand;
 import nl.cge.model.TaskView;
@@ -23,6 +24,9 @@ public class TaskResource implements TasksApi {
 
     @Inject
     FindTasksController findTasksController;
+
+    @Inject
+    DeleteCompletedTasksController deleteCompletedTasksController;
 
     @Override
     public TaskView createTask(CreateTaskCommand createTaskCommand) {
@@ -46,6 +50,12 @@ public class TaskResource implements TasksApi {
     public List<TaskView> getTasks() {
         Log.info("Get all tasks");
         return findTasksController.getTasks();
+    }
+
+    @Override
+    public void deleteCompletedTasks() {
+        Log.info("Deleting completed tasks");
+        deleteCompletedTasksController.deleteCompletedTasks();
     }
 
 }

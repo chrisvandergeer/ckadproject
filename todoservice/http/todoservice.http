@@ -1,6 +1,6 @@
 
-# @host = http://localhost:8080
-@host = http://localhost:9001
+@host = http://localhost:8080
+# @host = http://localhost:9001
 
 ### Create Task
 POST {{host}}/tasks
@@ -12,12 +12,13 @@ Content-Type: application/json
 }
 
 ### Complete Task
-PUT {{host}}/tasks/complete/5847f645-2f48-4c75-a957-07e6405105ec
-
+PUT {{host}}/tasks/complete/cf05ae55-3ad9-4f53-88d3-ea7ac4f788f3
 
 ### Find Tasks
 GET {{host}}/tasks
 
-
 ### Find completed Tasks
 GET {{host}}/tasks/complete
+
+### Delete completed Tasks
+DELETE {{host}}/tasks

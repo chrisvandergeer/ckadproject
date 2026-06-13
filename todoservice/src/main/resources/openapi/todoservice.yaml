@@ -23,6 +23,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TaskView' 
+    delete:
+      summary: Delete completed Tasks
+      operationId: deleteCompletedTasks
+      responses:
+        '204':
+          description: Completed Tasks deleted successfully
     get:
       summary: Get all Tasks
       operationId: getTasks
